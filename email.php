@@ -1,11 +1,11 @@
 <?php
 set_time_limit(0);
 //error_reporting(0);
-require_once('E:/www/philippine_gateway/class/class.phpmailer.php'); 
-require_once('E:/www/philippine_gateway/class/class.smtp.php'); 
-require_once('E:/www/philippine_gateway/lib/gw-utility.php');
+require_once('class.phpmailer.php'); 
+require_once('class.smtp.php'); 
+require_once('gw-utility.php');
 
-$con = mysqli_connect("52.220.52.227","cma_web","55yDEKwj","cma_web");
+$con = mysqli_connect(" "," "," "," ");
 
 // Check connection
 if (mysqli_connect_errno())
@@ -13,8 +13,6 @@ if (mysqli_connect_errno())
   //echo "Failed to connect to MySQL: " . mysqli_connect_error();
  }
  
-//$logfile = 'E:/log/philippine_gateway/other/report/';
-//$logname = "philstar_daily_report";
 
 
 $email_content = "";
@@ -33,7 +31,7 @@ global $con; //$logfile, $logname;
 
 $current_date = date("Y-m-d");
 
-//$email_content.= "<b> [CMA Running Campaign Ads] - Daily Report (".date("Y-m-d",strtotime($current_date)).") </b> <br /><br />";
+//$email_content.= "<b> [Running Campaigns] - Daily Report (".date("Y-m-d",strtotime($current_date)).") </b> <br /><br />";
 
 	//$sql_per_status = "SELECT id, name AS ads_name FROM campaign_creative_info WHERE end_date >= CURDATE() AND status_id = '1' AND id NOT IN ('1420', '1451')";
 	$sql_per_status = "SELECT ad_name AS ads_name FROM running_campaigns WHERE running_campaigns.date = CURDATE()";
@@ -70,24 +68,24 @@ function sendMail ($email_content) {
 	
 	$mail    = new PHPMailer;
 $current_date = date("Y-m-d");
-	$subject = "[CMA Running Campaign Ads] - Daily Report (".date("Y-m-d",strtotime($current_date)).")";
+	$subject = "[Running Campaigns] - Daily Report (".date("Y-m-d",strtotime($current_date)).")";
 
 	$mail->IsSMTP();                                      // Set mailer to use SMTP
 	$mail->Host = 'smtp.gmail.com;';                       // Specify host server
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'donotreply@cdu.com.ph';           // SMTP username
-	$mail->Password = 'CMPa55w0rd';                      // SMTP password
+	$mail->Username = '';           // SMTP username
+	$mail->Password = '';                      // SMTP password
 	$mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
 	$mail->SMTPDebug  = 0;   
 
-	$mail->From = 'donotreply@cdu.com.ph'; 
+	$mail->From = ''; 
 	$mail->FromName = 'donotreply'; 
 	
-	$mail->AddAddress('randy.tejada@cdu.com.ph');
-	$mail->AddAddress('patrick.santos@cdu.com.ph');
-	$mail->AddAddress('marc.reyman@cdu.com.ph');
-	$mail->AddAddress('renz.ladroma@cdu.com.ph');
-	$mail->AddAddress('irene.eusebio@cdu.com.ph'); 
+	$mail->AddAddress('');
+	$mail->AddAddress('');
+	$mail->AddAddress('');
+	$mail->AddAddress('');
+	$mail->AddAddress(''); 
   
 	$mail->Port = 465; 
 
