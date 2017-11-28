@@ -81,11 +81,8 @@ $current_date = date("Y-m-d");
 	$mail->From = ''; 
 	$mail->FromName = 'donotreply'; 
 	
-	$mail->AddAddress('');
-	$mail->AddAddress('');
-	$mail->AddAddress('');
-	$mail->AddAddress('');
-	$mail->AddAddress(''); 
+	$mail->AddAddress('test@gmail.com');     //insert email on to whom to send the report
+
   
 	$mail->Port = 465; 
 
